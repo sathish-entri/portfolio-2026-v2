@@ -1026,6 +1026,14 @@
       opacity: 0.4;
     }
 
+    .banner-4 {
+      background: linear-gradient(135deg, #1a1005, #2a1a05);
+    }
+
+    .banner-4::before {
+      background: radial-gradient(circle at 30% 50%, #f59e0b, transparent 70%), radial-gradient(circle at 70% 50%, #ef4444, transparent 70%);
+      opacity: 0.4;
+    }
     .project-icon {
       position: relative;
       z-index: 1;
@@ -1918,8 +1926,8 @@
 
         <!-- Learning Dashboard (MERN) -->
         <div class="project-card fade-up" style="transition-delay:0.2s">
-          <div class="project-banner banner-3" style="padding:0; overflow:hidden; height:180px;">
-            <img src="assets/project_learning_dashboard.jpeg" alt="Learning Dashboard" style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+          <div class="project-banner banner-3">
+            <span class="project-icon">📚</span>
           </div>
           <div class="project-body">
             <h3 class="project-title">Learning Dashboard</h3>
@@ -1943,8 +1951,8 @@
 
         <!-- Support Team Dashboard (MERN) -->
         <div class="project-card fade-up" style="transition-delay:0.3s">
-          <div class="project-banner banner-4" style="padding:0; overflow:hidden; height:180px;">
-            <img src="assets/project_support_dashboard.jpeg" alt="Support Team Dashboard" style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+          <div class="project-banner banner-4">
+            <span class="project-icon">🎫</span>
           </div>
           <div class="project-body">
             <h3 class="project-title">Support Team Dashboard</h3>
