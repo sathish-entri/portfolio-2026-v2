@@ -7,6 +7,14 @@
   <title>Sathish Chandrasekar — MERN Stack Developer</title>
   <meta name="description"
     content="Portfolio of Sathish Chandrasekar — MERN Stack & Backend Developer with 2+ years of experience building scalable web apps." />
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -37,6 +45,44 @@
       --gradient-2: linear-gradient(135deg, #ec4899, #7c3aed);
       --gradient-3: linear-gradient(135deg, #10b981, #06b6d4);
       --gradient-4: linear-gradient(135deg, #f59e0b, #ec4899);
+      
+      /* Theme dependent additions */
+      --card-bg: #0c0c1e;
+      --nav-bg: rgba(5, 5, 16, 0.7);
+      --nav-scrolled: rgba(5, 5, 16, 0.92);
+      --nav-mobile-bg: rgba(5, 5, 16, 0.97);
+      --bg-float: 5, 5, 16;
+      --orb-opacity: 0.12;
+      --grid-opacity: 0.03;
+      --card-shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    :root.light {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(15, 23, 42, 0.03);
+      --border: rgba(15, 23, 42, 0.08);
+      --purple: #6d28d9;
+      --purple-light: #7c3aed;
+      --cyan: #0891b2;
+      --cyan-light: #06b6d4;
+      --pink: #db2777;
+      --pink-light: #ec4899;
+      --green: #059669;
+      --green-light: #10b981;
+      --orange: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      
+      --card-bg: #ffffff;
+      --nav-bg: rgba(248, 250, 252, 0.7);
+      --nav-scrolled: rgba(248, 250, 252, 0.92);
+      --nav-mobile-bg: rgba(248, 250, 252, 0.97);
+      --bg-float: 255, 255, 255;
+      --orb-opacity: 0.06;
+      --grid-opacity: 0.015;
+      --card-shadow: rgba(15, 23, 42, 0.08);
     }
 
     *,
@@ -79,8 +125,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(124, 58, 237, var(--grid-opacity)) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 58, 237, var(--grid-opacity)) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
@@ -91,7 +137,7 @@
       position: fixed;
       border-radius: 50%;
       filter: blur(80px);
-      opacity: 0.12;
+      opacity: var(--orb-opacity);
       pointer-events: none;
       z-index: 0;
       animation: float 12s ease-in-out infinite;
@@ -136,7 +182,6 @@
       }
     }
 
-    /* ─── Navbar ─── */
     #navbar {
       position: fixed;
       top: 0;
@@ -148,7 +193,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(5, 5, 16, 0.7);
+      background: var(--nav-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -156,7 +201,7 @@
     }
 
     #navbar.scrolled {
-      background: rgba(5, 5, 16, 0.92);
+      background: var(--nav-scrolled);
       box-shadow: 0 4px 30px rgba(124, 58, 237, 0.15);
     }
 
@@ -208,6 +253,30 @@
       transform: translateY(-1px);
     }
 
+    /* Theme Toggle Button */
+    .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      margin-left: 0.5rem;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(124, 58, 237, 0.15);
+      color: var(--purple-light);
+      border-color: var(--purple);
+      transform: scale(1.05);
+    }
+
     /* Hamburger */
     .hamburger {
       display: none;
@@ -234,7 +303,7 @@
       top: 70px;
       left: 0;
       right: 0;
-      background: rgba(5, 5, 16, 0.97);
+      background: var(--nav-mobile-bg);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       flex-direction: column;
@@ -547,7 +616,7 @@
 
     .float-badge {
       position: absolute;
-      background: rgba(5, 5, 16, 0.9);
+      background: rgba(var(--bg-float), 0.9);
       border: 1px solid var(--border);
       backdrop-filter: blur(10px);
       padding: 0.7rem 1.1rem;
@@ -631,7 +700,7 @@
       position: absolute;
       bottom: -20px;
       right: -20px;
-      background: rgba(5, 5, 16, 0.9);
+      background: rgba(var(--bg-float), 0.9);
       border: 1px solid rgba(124, 58, 237, 0.3);
       backdrop-filter: blur(10px);
       padding: 1rem 1.5rem;
@@ -1585,6 +1654,7 @@
       <li><a href="#projects" class="nav-link">Projects</a></li>
       <li><a href="#education" class="nav-link">Education</a></li>
       <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+      <li><button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1600,6 +1670,10 @@
     <a href="#projects" onclick="closeMenu()">🚀 Projects</a>
     <a href="#education" onclick="closeMenu()">🎓 Education</a>
     <a href="#contact" onclick="closeMenu()">📬 Contact</a>
+    <div style="padding: 1rem 0; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border);">
+      <span style="color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">Switch Theme</span>
+      <button id="themeToggleMobile" class="theme-toggle-btn" aria-label="Toggle Theme" style="margin: 0;"><i class="fas fa-moon"></i></button>
+    </div>
   </div>
 
   <!-- ─── HERO ─── -->
@@ -2386,7 +2460,36 @@
       document.getElementById('certLightbox').style.display = 'none';
       document.body.style.overflow = '';
     }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    // ─── Theme Toggle Logic ───
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeToggleMobileBtn = document.getElementById('themeToggleMobile');
+    const htmlEl = document.documentElement;
+
+    function setTheme(theme) {
+      if (theme === 'light') {
+        htmlEl.classList.add('light');
+        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        if (themeToggleMobileBtn) themeToggleMobileBtn.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        htmlEl.classList.remove('light');
+        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        if (themeToggleMobileBtn) themeToggleMobileBtn.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+      const currentTheme = htmlEl.classList.contains('light') ? 'dark' : 'light';
+      setTheme(currentTheme);
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+    // Initialize theme state
+    const initialTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(initialTheme);
+
     type();
   </script>
 
